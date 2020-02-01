@@ -1,0 +1,73 @@
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-12">
+			<img src="/assets/images/happytaco.jpg" alt="taco" class="img-responsive center-block">
+		</div>
+	</div><!-- end first row -->
+
+
+
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="text-center text-danger">Eat-Da-Tacos</h1>
+		</div>
+	</div><!-- end second row -->
+
+
+
+	<div class="row">
+		<div class="col-md-5">
+			<h3>Available Tacos</h3>
+			<ul>
+				{{#each tacos}}
+					{{#unless this.devoured}}
+						<li>
+							<h5>{{this.id}}. {{this.taco_name}}
+								<form action='tacos/updateOne/{{this.id}}?_method=PUT' method='POST'>
+									<input type='hidden' name='devoured' value='true'>
+									<button type='submit' class="btn btn-default">Devour it</button>
+								</form>
+							</h5>
+						</li>
+					{{/unless}}
+				{{/each}}
+			</ul>
+		</div><!-- end column 1 -->
+
+
+		<div class="col-md-2"></div><!-- spacer column -->
+
+
+		<div class="col-md-5">
+			<h3 class="text-muted">Devoured Tacos</h3>
+			<ul>
+				{{#each tacos}}
+					{{#if this.devoured}}
+						<li>
+							<h5 class="text-muted">{{this.id}}. {{this.taco_name}}</h5>
+						</li>
+					{{/if}}
+				{{/each}}
+			</ul>
+		</div><!-- end column 2 -->
+
+	</div><!-- end third row -->
+
+	<br><br>
+
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<form class="create-update-form" action="tacos/insertOne" method="POST">
+				<div class="form-group">
+					<!-- <label for="bg">Taco Name:</label> -->
+					<textarea type="text" name="name"></textarea><br>
+					<button class="btn btn-default" type="submit">Submit</button>
+					<h5 class="text-center">Enter a taco you want to eat then click Submit button.</h5>
+				</div>
+			</form>
+		</div>
+	</div><!-- end fourth row -->
+
+<!-- end bootstrap container -->
+</div>
