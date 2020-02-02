@@ -4,7 +4,7 @@
 
 # Eat-Da-Tacos (Sequelize)
 
-Homework Week 15 - Eat-da-tacos
+Homework Week 17 - Eat-da-tacos
 
 
 ## **Description:**
