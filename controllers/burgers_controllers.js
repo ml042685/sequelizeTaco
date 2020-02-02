@@ -1,7 +1,7 @@
 // Required depedencies
 var express = require('express');
 var router = express.Router();
-var taco = require('../models/taco.js');
+var db = require('../models');
 
 // Create routes
 
@@ -13,10 +13,15 @@ router.get('/', function(req, res) {
 
 // selectAll
 router.get('/index', function(req, res) {
-	taco.selectAll(function(data) {
+	console.log("YOu hit index!");
+	db.Taco.findAll({}).then(function(data){
 		var hbsObject = {taco: data};
 		res.render('index', hbsObject);
-	});
+	})
+	// taco.find(function(data) {
+	// 	var hbsObject = {taco: data};
+	// 	res.render('index', hbsObject);
+	// });
 });
 
 
